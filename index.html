@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sun-moon-animation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background: #a89898ce;
+        }
+
+        body {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        .universe {
+            background-color: aqua;
+            width: 250px;
+            aspect-ratio: 1;
+            border-radius: 8px;
+            display: grid;
+            place-content: center;
+            animation: skychange 10s  ease-in-out infinite;
+        }
+        @keyframes skychange {
+            0%{
+                background-color: aqua;
+            }
+            25%{
+                background-color: rgb(105, 201, 201);
+            }
+            50%{
+                background-color: #000;
+            }
+            75%{
+                background-color: rgb(105, 201, 201);;
+            }
+            100%{
+                background-color: aqua;
+            }
+        }
+
+        .sun {
+            width: 110px;
+            border-radius: 50%;
+            aspect-ratio: 1;
+            background-color: red;
+            position: relative;
+            overflow: hidden;
+
+            &::after {
+                content:'';
+                width: inherit;
+                aspect-ratio: 1;
+                position: absolute;
+                background-color: #000;
+                border-radius: 50%;
+                top: 0;
+                left: 0;
+                animation: moonwalk 10s ease-in-out infinite;
+            }
+        }
+        @keyframes moonwalk {
+            0%{
+                translate: 100%;
+                scale: 1;
+            }
+            50%{
+                translate: 0%;
+                scale: .95;
+            }
+            100%{
+                translate: -100%;
+                scale: 1;
+                
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="universe">
+        <div class="sun"></div>
+    </div>
+</body>
+
+</html>
